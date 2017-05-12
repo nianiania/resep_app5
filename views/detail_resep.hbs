@@ -1,44 +1,44 @@
 <div class="container">
     <center><h3 style="font-weight:bold">{{judul}}</h3></center><br/>
 
-        <div class="jumbotron">
-            <form action="/" method="POST" class="form-horizontal">
+        <div class="jumbotron" style="background-color:#a3daff">
+            <form class="form-horizontal">
 
                 <div class="form-group">
                     <label for="id" class="col-sm-2 control-label">ID</label>
                     <div class="col-sm-7">
-                        <input type="number" class="form-control" name="id" placeholder="ID">
+                       <h4>{{ID}}</h4>
                     </div>
                 </div>
         
                 <div class="form-group">
                     <label for="nama_resep" class="col-sm-2 control-label">Nama Resep</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="nama_resep" placeholder="Nama Resep">
+                        <h4>{{Nama_Resep}}</h4>
                     </div>
                 </div> 
 
                 <div class="form-group">
                     <label for="deskripsi" class="col-sm-2 control-label">Deskripsi</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi">
+                        <h4>{{Deskripsi}}</h4>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="penulis" class="col-sm-2 control-label">Penulis</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="penulis" placeholder="Penulis">
+                        <h4>{{Penulis}}</h4>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="cara_pembuatan" class="col-sm-2 control-label">Cara Pembuatan</label>
                     <div class="col-sm-7">
-                        <textarea class="form-control" rows="3" name="cara_pembuatan"></textarea>
+                        <h4>{{Cara_Pembuatan}}</h4>
                         
                         <br/>
-                        <input class="btn btn-default" type="submit" value="Submit">
+                        <a class="btn btn-defult" href="/" role="button">Back</a>
                     </div>
                 </div> 
             </form>  
@@ -46,23 +46,6 @@
 
 
 
-
-
-
-        <div class="row">
-            {{#each data}}
-            <div class="col-sm-6 col-md-4">
-                <a href="/detail_resep?id={{id}}">
-                    <div class="thumbnail" style="background-color:#dbe4ff">
-                        <div class="caption">
-                            <h3 style="font-weight:bold">{{nama_resep}}</h3>
-                            <p style="margin-top:-10px">by{{penulis}}</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-           {{/each}}
-        </div>
 
         <br/><br/><br/><br/><br/>
 </div> 
