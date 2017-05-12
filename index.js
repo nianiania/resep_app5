@@ -4,18 +4,21 @@ var express = require('express')
 var app = express()
 var path = require('path')
 var bodyParse = require('body-parser')
+var exphbs = require("express-handlebars")
 
 app.use(bodyParse.urlencoded({
 	extended: true
 }));
 app.use(bodyParse.json());
 
+app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', '.hbs')
 
 //===============routing========
 
 app.route('/')
 	.get(function(req, res){
-		res.sendFile(path.join(__dirname + '/view/home.html'))
+		res.render('home');
 	})
 	.post(function(req, res){
 		var angka_1 = req.body.angka1
@@ -32,11 +35,14 @@ app.route('/')
 			res.send("error masukkan angka 2!")
 		} else {
 			penjumlahan(angka_1, angka_2)
-			
+
 		}
 		function penjumlahan(a, b){
 			var total = parseInt(a)+ parseInt(b)
-			res.send("total" + a + "+" + b + "=" + total)
+			res.render("hasil",{
+				judul:"hasil penjumlahan",
+				hasil_penjumlahan: total
+			})
 		}
 
 	})
