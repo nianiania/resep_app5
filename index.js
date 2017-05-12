@@ -18,33 +18,18 @@ app.set('view engine', '.hbs')
 
 app.route('/')
 	.get(function(req, res){
-		res.render('home');
+		res.render('resep');
 	})
 	.post(function(req, res){
-		var angka_1 = req.body.angka1
-		var angka_2 = req.body.angka2
+		var nama_resep = req.body.nama_resep
+		var deskripsi = req.body.deskripsi
+		var penulis = req.body.penulis
+		var cara_pembuatan = req.body.cara_pembuatan
 
-		if(angka_1 == "" && angka_2 == ""){
-			console.log("error! masukkan angka 1 dan angka 2")
-			res.send("error! masukkan angka 1 dan angka 2")
-		}else if( angka_1 == ""){
-			console.log("error! masukkan angka 1")
-			res.send("error! masukkan angka 1")
-		}else if (angka_2 == "") {
-			console.log("error! masukkan angka 2!")
-			res.send("error masukkan angka 2!")
-		} else {
-			penjumlahan(angka_1, angka_2)
-
-		}
-		function penjumlahan(a, b){
-			var total = parseInt(a)+ parseInt(b)
-			res.render("hasil",{
-				judul:"hasil penjumlahan",
-				hasil_penjumlahan: total
-			})
-		}
-
+		console.log(nama_resep)
+		console.log(deskripsi)
+		console.log(penulis)
+		console.log(cara_pembuatan)
 	})
 
 
